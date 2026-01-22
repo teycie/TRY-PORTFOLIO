@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f3f7;
+  color: #333;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: calc(100vh - 120px);
+}
+
+:root {
+  --primary-lilac: #C8A2C8;
+  --dark-lilac: #a56ba5;
+  --light-lilac: #e8d5e8;
+  --very-light-lilac: #f5f0f6;
+  --accent-purple: #8b5fbf;
+  --text-dark: #2d2d2d;
+  --text-light: #666;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 8px rgba(200, 162, 200, 0.1);
+  --shadow-md: 0 4px 16px rgba(200, 162, 200, 0.15);
+  --shadow-lg: 0 8px 32px rgba(200, 162, 200, 0.2);
+}
+
+/* Accessibility focus states */
+:focus {
+  outline: 3px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 3px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+button,
+a {
+  transition: all 0.3s ease;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}

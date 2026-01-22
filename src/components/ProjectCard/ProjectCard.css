@@ -1,0 +1,155 @@
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  &:focus-within {
+    outline: 3px solid var(--accent-purple);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 8px;
+  }
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  background: linear-gradient(135deg, var(--very-light-lilac), white);
+
+  @media (max-width: 480px) {
+    height: 180px;
+  }
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(200, 162, 200, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.project-link-btn {
+  padding: 10px 20px;
+  background: white;
+  color: var(--primary-lilac);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent;
+    color: white;
+  }
+
+  &:focus {
+    outline: 3px solid white;
+    outline-offset: 2px;
+  }
+}
+
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+  }
+}
+
+.project-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+.project-card:hover .project-title {
+  color: var(--primary-lilac);
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: var(--very-light-lilac);
+  color: var(--primary-lilac);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--light-lilac);
+  transition: all 0.3s ease;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+.project-card:hover .tech-tag {
+  background: var(--primary-lilac);
+  color: white;
+  border-color: var(--primary-lilac);
+}

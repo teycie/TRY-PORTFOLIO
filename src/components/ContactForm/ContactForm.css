@@ -1,0 +1,120 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h3 {
+    font-size: 1.6rem;
+    color: var(--primary-lilac);
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #28a745;
+  font-weight: 500;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #f5c6cb;
+  font-weight: 500;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--light-lilac);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+
+    &::placeholder {
+      color: #bbb;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-lilac);
+      background-color: white;
+      box-shadow: 0 0 0 3px rgba(200, 162, 200, 0.1);
+    }
+
+    &:hover {
+      border-color: var(--primary-lilac);
+    }
+
+    @media (max-width: 480px) {
+      font-size: 16px; /* Prevents zoom on mobile */
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.submit-btn {
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary-lilac), var(--accent-purple));
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  margin-top: 0.5rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  &:focus {
+    outline: 3px solid var(--accent-purple);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+}

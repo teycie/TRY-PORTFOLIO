@@ -1,0 +1,231 @@
+.contact {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f0f6 100%);
+  padding: 80px 20px;
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 20px;
+  }
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+
+  span {
+    color: var(--primary-lilac);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-lilac), var(--accent-purple));
+    margin: 20px auto 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.contact-form-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+}
+
+.contact-info-section {
+  h3 {
+    font-size: 1.8rem;
+    color: var(--primary-lilac);
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  h4 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.info-text {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+.social-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.social-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--very-light-lilac), white);
+  border: 2px solid var(--light-lilac);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--primary-lilac);
+    background: var(--very-light-lilac);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &:focus {
+    outline: 3px solid var(--accent-purple);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+  }
+}
+
+.social-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-name {
+  color: var(--primary-lilac);
+  font-weight: 600;
+  font-size: 1.1rem;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+.contact-info {
+  background: linear-gradient(135deg, var(--very-light-lilac), white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-lilac);
+
+  p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+
+    strong {
+      color: var(--text-dark);
+    }
+
+    a {
+      color: var(--primary-lilac);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--accent-purple);
+      }
+
+      &:focus {
+        outline: 3px solid var(--accent-purple);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-section {
+    order: 1;
+  }
+
+  .contact-form-section {
+    order: 2;
+  }
+}
