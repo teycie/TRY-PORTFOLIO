@@ -16,7 +16,7 @@ function Projects() {
     },
     {
       id: 2,
-      title: 'Task Manager App',
+      title: 'Task Manager Aspp',
       description:
         'A full-stack task management application with user authentication, database integration, and real-time updates.',
       technologies: ['React', 'Node.js', 'MongoDB'],

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import './ContactForm.css';
 
 function ContactForm() {
+  const formRef = useRef(null);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +15,7 @@ function ContactForm() {
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,19 +49,35 @@ function ContactForm() {
       return;
     }
 
-    // Here you would typically send the form data to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setLoading(true);
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAILJS_SERVCICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setLoading(false);
+
+        setTimeout(() => setSubmitted(false), 5000);
+      })
+      .catch(() => {
+        setError('Failed to send message. Please try again.');
+        setLoading(false);
+      });
   };
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+    <form className="contact-form" onSubmit={handleSubmit} ref={formRef} noValidate>
       <h3>Send Me a Message</h3>
 
       {submitted && (
@@ -65,7 +85,6 @@ function ContactForm() {
           className="success-message"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
           role="status"
           aria-live="polite"
         >
@@ -78,7 +97,6 @@ function ContactForm() {
           className="error-message"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
           role="alert"
           aria-live="assertive"
         >
@@ -96,7 +114,6 @@ function ContactForm() {
           onChange={handleChange}
           placeholder="Your Name"
           required
-          aria-required="true"
         />
       </div>
 
@@ -110,7 +127,6 @@ function ContactForm() {
           onChange={handleChange}
           placeholder="Your Email"
           required
-          aria-required="true"
         />
       </div>
 
@@ -124,7 +140,6 @@ function ContactForm() {
           onChange={handleChange}
           placeholder="Message Subject"
           required
-          aria-required="true"
         />
       </div>
 
@@ -138,16 +153,11 @@ function ContactForm() {
           placeholder="Your Message"
           rows="5"
           required
-          aria-required="true"
-        ></textarea>
+        />
       </div>
 
-      <button
-        type="submit"
-        className="submit-btn"
-        aria-label="Send message"
-      >
-        Send Message
+      <button type="submit" className="submit-btn" aria-label="Send message" disabled={loading}>
+        {loading ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );
