@@ -16,13 +16,14 @@ function Projects() {
     },
     {
       id: 2,
-      title: 'Task Manager Aspp',
+      title: 'Wireframing',
       description:
         'A full-stack task management application with user authentication, database integration, and real-time updates.',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      link: 'https://github.com',
-      image: 'https://via.placeholder.com/300x200/a56ba5/ffffff?text=Task+Manager',
+      technologies: ['Figma'],
+      link: 'https://www.figma.com/design/I2vF7nd01ADtlWzmozkzWW/Untitled?node-id=0-1&t=fy4tFx7NotPGiILV-1',
+      image: '/images/wireframe.png',
     },
+
     {
       id: 3,
       title: 'E-Commerce Platform',

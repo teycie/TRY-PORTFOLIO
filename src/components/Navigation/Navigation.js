@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation() {
@@ -13,12 +13,21 @@ function Navigation() {
     setIsMenuOpen(false);
   };
 
+  // Helper to scroll to section
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      closeMenu();
+    }
+  };
+
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
       <div className="nav-container">
-        <Link to="/" className="nav-logo" onClick={closeMenu}>
+        <a href="#home-section" className="nav-logo" onClick={e => { e.preventDefault(); scrollToSection('home-section'); }}>
           My <span>Portfolio</span>
-        </Link>
+        </a>
 
         <div className="hamburger" onClick={toggleMenu} aria-label="Toggle menu">
           <span></span>
@@ -28,24 +37,24 @@ function Navigation() {
 
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
-            <Link to="/" className="nav-link" onClick={closeMenu}>
+            <a href="#home-section" className="nav-link" onClick={e => { e.preventDefault(); scrollToSection('home-section'); }}>
               Home
-            </Link>
+            </a>
           </li>
           <li className="nav-item">
-            <Link to="/about" className="nav-link" onClick={closeMenu}>
+            <a href="#about-section" className="nav-link" onClick={e => { e.preventDefault(); scrollToSection('about-section'); }}>
               About Me
-            </Link>
+            </a>
           </li>
           <li className="nav-item">
-            <Link to="/projects" className="nav-link" onClick={closeMenu}>
+            <a href="#projects-section" className="nav-link" onClick={e => { e.preventDefault(); scrollToSection('projects-section'); }}>
               Projects
-            </Link>
+            </a>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-link" onClick={closeMenu}>
+            <a href="#contact-section" className="nav-link" onClick={e => { e.preventDefault(); scrollToSection('contact-section'); }}>
               Contact
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

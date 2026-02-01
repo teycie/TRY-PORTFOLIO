@@ -13,12 +13,19 @@ function App() {
     <Router>
       <Navigation />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        {/* Stack all pages for scrollable single-page view */}
+        <div id="home-section">
+          <Home />
+        </div>
+        <div id="about-section">
+          <About />
+        </div>
+        <div id="projects-section">
+          <Projects />
+        </div>
+        <div id="contact-section">
+          <Contact />
+        </div>
       </main>
       <Footer />
     </Router>

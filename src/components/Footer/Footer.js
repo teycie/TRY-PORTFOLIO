@@ -41,7 +41,7 @@ function Footer() {
                 GitHub
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/tey.cie/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
